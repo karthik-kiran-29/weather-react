@@ -1,73 +1,114 @@
-# React + TypeScript + Vite
+# 🌦️ Weather App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and responsive Weather Application built with **React** and **TypeScript** that displays weather information based on the selected City ID.
 
-Currently, two official plugins are available:
+🔗 **Live Demo:** [https://weather-react-f229.netlify.app](https://weather-react-f229.netlify.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 📌 Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Select a city using **City ID**
+- Fetches weather data from an **external API**
+- Displays weather details in a **clean UI**
+- Built following a **low-fidelity design**
+- API calls handled efficiently using **Axios**
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🖼️ Screenshots
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+> Low-fidelity design and final output screenshots are attached in the repository.
+ <img width="1919" height="956" alt="image" src="https://github.com/user-attachments/assets/37827a46-02bd-464e-b3b1-a37c9bc6185d" />
+ <img width="1906" height="957" alt="image" src="https://github.com/user-attachments/assets/0359ded4-c01e-431d-9f81-779d3adf9935" />
+ <img width="597" height="346" alt="Screenshot 2026-02-25 123529" src="https://github.com/user-attachments/assets/72ef2684-ccec-4b11-ae06-bbad2ef4ae9a" />
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🛠️ Tech Stack
+
+| Technology | Purpose |
+|------------|---------|
+| React | Frontend UI library |
+| TypeScript | Type-safe JavaScript |
+| Axios | HTTP requests |
+| CSS | Styling |
+
+---
+
+## ⚙️ Installation & Setup
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/your-username/weather-app.git
+   ```
+
+2. **Navigate to the project directory:**
+   ```bash
+   cd weather-app
+   ```
+
+3. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+4. **Start the development server:**
+   ```bash
+   npm start
+   ```
+
+The app will run at: 👉 [http://localhost:3000](http://localhost:3000)
+
+---
+
+## 🚀 Usage
+
+1. Select a **City ID** from the available options
+2. The application **fetches weather data** from the API
+3. **Weather details** are displayed on the UI
+
+---
+
+## 📂 Project Structure
+
+```
+src/
+├── components/
+├── services/
+│   └── api.ts
+├── App.tsx
+├── index.tsx
+└── styles/
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🔗 API Handling
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- **Axios** is used for HTTP requests
+- **Error handling** is implemented for invalid City IDs
+
+---
+
+## 📌 Future Improvements
+
+- [ ] Search by city name
+- [ ] Add weather icons
+- [ ] Improve UI/UX
+- [ ] Add loading and error states
+
+---
+
+## 👨‍💻 Author
+
+**Karthik Kiran**  
+2nd Year IT Student | Web Developer
+
+[![GitHub](https://img.shields.io/badge/GitHub-your--username-181717?style=flat&logo=github)](https://github.com/your-username)
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
