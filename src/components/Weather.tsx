@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { getCities, getCityWeather } from '../api';
+import { useEffect, useState } from 'react';
+import { getCityWeather } from '../api';
 
 
 // --- Types based on API output ---
@@ -125,7 +125,7 @@ export function Weather({ cityId }: WeatherProps) {
           {data.weather.forecast.map((day, index) => (
             <div 
               key={index} 
-              className="min-w-[140px] bg-white border border-gray-200 p-4 rounded-xl shadow-sm flex flex-col items-center shrink-0 snap-start"
+              className=" bg-white border border-gray-200 p-4 rounded-xl shadow-sm flex flex-col items-center shrink-0 snap-start"
             >
               <div className="text-sm font-medium text-gray-500 mb-2">
                 {/* Formats "08-Sep-2024" to a shorter version if needed, or keeps as is */}
