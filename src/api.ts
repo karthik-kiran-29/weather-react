@@ -9,7 +9,7 @@ export async function getCities(){
     return await api.get('/india/cities');
 }
 
-export async function getCityWeather(city_id:String){
+export async function getCityWeather(){//city_id:String){
     // The indian api is not working 
     const sample = {
   "city": "Chennai-nungambakkam",
@@ -83,6 +83,6 @@ export async function getCityWeather(city_id:String){
     }
   }
 }
-   await api.get('/india/weather_by_id', { params: { city_id: city_id } });
+   //await api.get('/india/weather_by_id', { params: { city_id: city_id } });
    return {data:sample};
 }

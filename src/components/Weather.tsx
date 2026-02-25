@@ -48,7 +48,7 @@ export function Weather({ cityId }: WeatherProps) {
     const fetchWeather = async () => {
       setLoading(true);
       try {
-        const response = await getCityWeather(cityId);
+        const response = await getCityWeather()//cityId);
         setData(response.data);
       } catch (err) {
         setError(err instanceof Error ? err.message : "An error occurred");
