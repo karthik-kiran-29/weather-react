@@ -1,14 +1,16 @@
 import type { AxiosResponse } from "axios";
-import { getCities } from "./api"
+import { getCities, getCityWeather } from "./api"
 import { useEffect, useState } from "react";
 
 function App() {
-  const [cities, setCities] = useState<any>(null);
+  const [cityId,SetCityId] = useState<string>("");
+  const [cities, setCities] = useState<Record<string, string>>({});
+  const [weatherData,setWeatherData] = useState<Object>({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchCities = async () => {
       try {
         const response = await getCities();
         setCities(response.data);
@@ -19,18 +21,29 @@ function App() {
       }
     };
 
-    fetchData();
+    fetchCities();
   }, []);
 
   if (loading) return <h1>Loading...</h1>;
   if (error) return <h1>Error: {error}</h1>;
 
-  console.log(cities)
 
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+    <div>
+      <div>
+        <div>Select Your City:
+        <select value={cityId} onChange={(e)=>{SetCityId(e.target.value)}}>
+          {Object.entries(cities).map(([key, value]) => (
+            <option value={key} key={key}>{value}</option>
+          ))}
+        </select>
+      </div>
+      <button onClick={()=> {console.log(cityId)}}>Submit</button>
+      </div>
+      <div>
+          {(cityId.length==0)?<div>Enter the data to view City</div>:<div>data</div> }
+      </div>
+    </div>
   )
 }
 

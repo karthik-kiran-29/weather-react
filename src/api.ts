@@ -2,7 +2,7 @@ import axios from "axios";
 
 const api =  axios.create({
   baseURL: 'https://weather.indianapi.in',
-  headers: { 'X-Api-Key': import.meta.env.WEATHER_API }
+  headers: { 'X-Api-Key': import.meta.env.VITE_WEATHER_API }
 });
 
 export async function getCities(){
