@@ -1,11 +1,9 @@
-import type { AxiosResponse } from "axios";
-import { getCities, getCityWeather } from "./api"
+import { getCities} from "./api"
 import { useEffect, useState } from "react";
 
 function App() {
   const [cityId,SetCityId] = useState<string>("");
   const [cities, setCities] = useState<Record<string, string>>({});
-  const [weatherData,setWeatherData] = useState<Object>({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -41,7 +39,9 @@ function App() {
       <button onClick={()=> {console.log(cityId)}}>Submit</button>
       </div>
       <div>
-          {(cityId.length==0)?<div>Enter the data to view City</div>:<div>data</div> }
+          {(cityId.length==0)?<div>Enter the data to view City</div>:<div>
+            <Weather cityId={cityId}/>
+          </div> }
       </div>
     </div>
   )
