@@ -35,8 +35,11 @@ interface WeatherProps {
   cityId: string;
 }
 
+
+
 // --- Weather Component ---
 export function Weather({ cityId }: WeatherProps) {
+    
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [data, setData] = useState<WeatherData | null>(null);
