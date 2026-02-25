@@ -1,8 +1,9 @@
-import { getCities} from "./api"
 import { useEffect, useState } from "react";
+import { getCities } from "./api";
+import { Weather } from "./components/Weather";
 
-function App() {
-  const [cityId,SetCityId] = useState<string>("");
+export default function App() {
+  const [cityId, setCityId] = useState<string>("");
   const [cities, setCities] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -22,30 +23,46 @@ function App() {
     fetchCities();
   }, []);
 
-  if (loading) return <h1>Loading...</h1>;
-  if (error) return <h1>Error: {error}</h1>;
-
-
   return (
-    <div>
-      <div>
-        <div>Select Your City:
-        <select value={cityId} onChange={(e)=>{SetCityId(e.target.value)}}>
-          {Object.entries(cities).map(([key, value]) => (
-            <option value={key} key={key}>{value}</option>
-          ))}
-        </select>
-      </div>
-      <button onClick={()=> {console.log(cityId)}}>Submit</button>
-      </div>
-      <div>
-          {(cityId.length==0)?<div>Enter the data to view City</div>:<div>
-            <Weather cityId={cityId}/>
-          </div> }
+    <div className="min-h-screen bg-gray-50 p-6 md:p-12 font-sans text-gray-900">
+      <div className="max-w-4xl mx-auto">
+        
+        {/* City Selection Header */}
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 bg-white p-4 md:p-6 rounded-2xl shadow-sm border border-gray-200">
+          <label htmlFor="city-select" className="text-lg font-medium text-gray-700 whitespace-nowrap">
+            Select City:
+          </label>
+          
+          {loading ? (
+            <span className="text-gray-500">Loading cities...</span>
+          ) : error ? (
+            <span className="text-red-500">Failed to load cities.</span>
+          ) : (
+            <select 
+              id="city-select"
+              value={cityId} 
+              onChange={(e) => setCityId(e.target.value)}
+              className="flex-1 w-full sm:max-w-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 outline-none"
+            >
+              <option value="" disabled>-- Choose a location --</option>
+              {Object.entries(cities).map(([key, value]) => (
+                <option value={key} key={key}>{value}</option>
+              ))}
+            </select>
+          )}
+        </div>
+
+        {/* Weather Content Area */}
+        {cityId.length === 0 ? (
+          <div className="mt-12 text-center text-gray-400">
+            <div className="text-5xl mb-4">📍</div>
+            <p className="text-lg">Select a city from the dropdown to view the weather forecast.</p>
+          </div>
+        ) : (
+          <Weather cityId={cityId} />
+        )}
+        
       </div>
     </div>
-  )
+  );
 }
-
-export default App
-
