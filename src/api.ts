@@ -83,6 +83,6 @@ export async function getCityWeather(city_id:String){
     }
   }
 }
-   // return await api.get('/india/weather_by_id', { params: { city_id: city_id } });
+   await api.get('/india/weather_by_id', { params: { city_id: city_id } });
    return {data:sample};
 }
